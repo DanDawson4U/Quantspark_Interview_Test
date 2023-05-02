@@ -1,3 +1,7 @@
+-- SQL script to generate avg drinks per day per venue, per hour per venue and previous day in data.
+-- Then we join to our glass reference table and finally to the supply for each venue and each type of glass
+-- resulting view provides an overview of supply and demand for each glass.
+
 DROP TABLE IF EXISTS Drink_Demand;
 CREATE TEMPORARY TABLE Drink_Demand AS
 SELECT
