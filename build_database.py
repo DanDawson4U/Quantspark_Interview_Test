@@ -18,22 +18,22 @@ remediation_dicts = []
 # ------------------------- Reading and Cleaning supplied datasets -------------------------------
 
 # Read the data files
-bar_data = pd.read_csv("bar_data.csv")
+bar_data = pd.read_csv("Data/bar_data.csv")
 
 # Read and clean the transaction data, ensuring two decimal places for cost
-budapest_transactions = pd.read_csv(gzip.open("budapest.csv.gz", 'rt'), delimiter=",")
+budapest_transactions = pd.read_csv(gzip.open("Data/budapest.csv.gz", 'rt'), delimiter=",")
 budapest_transactions.columns = ['transaction_id', 'timestamp', 'drink', 'cost']
 budapest_transactions['cost'] = budapest_transactions['cost'].apply(lambda x: Decimal(str(x)).quantize(Decimal('0.01')))
 budapest_transactions['cost'] = budapest_transactions['cost'].astype('float64')
 budapest_transactions['location'] = 'budapest'
 
-london_transactions = pd.read_csv(gzip.open("london_transactions.csv.gz", 'rt'), delimiter="\t", header=None)
+london_transactions = pd.read_csv(gzip.open("Data/london_transactions.csv.gz", 'rt'), delimiter="\t", header=None)
 london_transactions.columns = ['transaction_id', 'timestamp', 'drink', 'cost']
 london_transactions['cost'] = london_transactions['cost'].apply(lambda x: Decimal(str(x)).quantize(Decimal('0.01')))
 london_transactions['cost'] = london_transactions['cost'].astype('float64')
 london_transactions['location'] = 'london'
 
-ny_transactions = pd.read_csv(gzip.open("ny.csv.gz", 'rt'), delimiter=",")
+ny_transactions = pd.read_csv(gzip.open("Data/ny.csv.gz", 'rt'), delimiter=",")
 ny_transactions.columns = ['transaction_id', 'timestamp', 'drink', 'cost']
 ny_transactions['cost'] = ny_transactions['cost'].apply(lambda x: Decimal(str(x)).quantize(Decimal('0.01')))
 ny_transactions['cost'] = ny_transactions['cost'].astype('float64')

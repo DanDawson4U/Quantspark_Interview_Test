@@ -51,6 +51,7 @@ CREATE TEMPORARY TABLE Glass_Supply AS
     on DIM_Glasses.glass_id = Bar_Data.glass_id;
 SELECT * FROM Glass_Supply limit 100;
 
+DROP VIEW IF EXISTS glass_supply_demand;
 CREATE VIEW glass_supply_demand AS
 SELECT
     A.Glass,
