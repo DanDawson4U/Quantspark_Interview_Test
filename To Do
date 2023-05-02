@@ -3,3 +3,5 @@ The remaining tasks I would undertake if this were an unlimited time exercise:
 # TODO implement more cleaning/reporting for bar_data.csv. There is a "36 Glasses" entry, for example
 # TODO Test and Rewrite SQL if necessary, a few datapoints are inconsistent with what i would expect from a bar eg. 2000 cocktail glasses required per day.
 # TODO Streamline python, check for duplications of work and improve readability
+# TODO Consider further ways of presenting the data to the analysts. A value for each glass type that has yet to be surpassed, or a statistical approach where we
+# suggest a glass total one standard deviation above the mean usage for the venues. Ideally this would be done with an understanding of how fast the glasses are washed up etc.
