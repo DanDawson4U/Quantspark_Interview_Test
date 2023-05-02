@@ -47,13 +47,13 @@ CREATE TEMPORARY TABLE Glass_Supply AS
     on DIM_Glasses.glass_id = Bar_Data.glass_id;
 SELECT * FROM Glass_Supply limit 100;
 
-CREATE VIEW drink_supply_demand AS
+CREATE VIEW glass_supply_demand AS
 SELECT
     A.Glass,
     MAX(A.Stock) AS stock,
-    SUM(B.avg_drinks_per_day) AS total_drinks_per_day,
-    SUM(B.avg_drinks_per_hour) AS total_drinks_per_hour,
-    SUM(B.drinks_ordered) AS total_drinks_ordered
+    SUM(B.avg_drinks_per_day) AS avg_glasses_per_day,
+    SUM(B.avg_drinks_per_hour) AS avg_glasses_per_hour,
+    SUM(B.drinks_ordered) AS avg_glasses_required_yesterday
 FROM
     Glass_Supply A
     JOIN Drink_Demand B
@@ -61,4 +61,5 @@ FROM
 GROUP BY
     A.Glass,
     A.location;
+
 
